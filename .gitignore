@@ -7,3 +7,5 @@ builder-brief.md
 scaffold.html
 tokens.json
 preview.png
+.vercel
+.DS_Store

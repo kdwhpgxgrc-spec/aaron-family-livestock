@@ -40,7 +40,7 @@
       --section-y-md:   85px;
       --section-y-sm:   65px;
       --col-pad-y:      5%;
-      --col-pad-x:      3%;
+      --col-pad-x:      var(--col-pad-x);
       --gap:            1rem;
 
       --radius-btn:     0.35em;
@@ -118,7 +118,7 @@
       align-items: center;
       justify-content: space-between;
       height: 64px;
-      padding: 0 clamp(1rem, 4vw, 3rem) 0 0;
+      padding: 0 var(--col-pad-x) 0 0;
       background: rgba(0,0,0,0.92);
       backdrop-filter: blur(12px);
     }
@@ -294,7 +294,7 @@
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      padding: 0 clamp(1rem, 4vw, 3rem);
+      padding: 0 var(--col-pad-x);
       margin-bottom: 2rem;
     }
     .carousel-nav-btns {
@@ -318,7 +318,7 @@
       gap: var(--gap);
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      padding: 0 clamp(1rem, 4vw, 3rem);
+      padding: 0 var(--col-pad-x);
       scrollbar-width: none;
     }
     .carousel-track::-webkit-scrollbar { display: none; }
@@ -372,7 +372,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: var(--section-y-lg) clamp(1rem, 4vw, 3rem);
+      padding: var(--section-y-lg) var(--col-pad-x);
     }
     .two-col-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .showpiece-card {
@@ -424,7 +424,7 @@
     .cta-script { font-family: var(--font-display); font-weight: var(--weight-display); font-size: 2.5rem; color: rgba(255,255,255,0.85); line-height: 1; margin-bottom: 0.5rem; }
     .cta-headline { font-family: var(--font-heading); font-weight: var(--weight-nav); font-size: var(--size-h2); text-transform: uppercase; line-height: var(--lh-heading); color: var(--white); margin-bottom: 1.5rem; }
 
-    footer { padding: var(--section-y-md) clamp(1rem, 4vw, 3rem) var(--section-y-sm); }
+    footer { padding: var(--section-y-md) var(--col-pad-x) var(--section-y-sm); }
     .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
     .footer-tagline { font-family: var(--font-heading); font-weight: var(--weight-nav); font-size: 1.1rem; text-transform: uppercase; letter-spacing: var(--ls-nav); color: var(--white); margin-bottom: 0.75rem; }
     .footer-desc { font-size: 0.85rem; color: var(--white-muted); line-height: 1.6; max-width: 28ch; }
@@ -631,14 +631,14 @@
     </div>
   </section>
 
-  <section class="carousel-section" id="sires" style="padding: var(--section-y-lg) clamp(1rem,4vw,3rem);">
-    <div class="carousel-header" style="padding:0; margin-bottom:2.5rem;">
+  <section class="carousel-section" id="sires" style="padding: var(--section-y-lg) 0;">
+    <div class="carousel-header" style="padding:0 var(--col-pad-x); margin-bottom:2.5rem;">
       <div>
         <div class="eyebrow">Aaron Family Livestock Genetics</div>
         <h2 class="section-headline">AI &amp; Embryo Genetics</h2>
       </div>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem;" id="sires-track">
+    <div class="carousel-track" id="sires-track">
 
       <!-- Circle S Moxy 406 — AI Sire -->
       <div class="carousel-card">
@@ -818,7 +818,7 @@
   </section>
 
 
-  <section class="cta-band" id="contact" style="min-height:auto; padding: var(--section-y-lg) clamp(1rem,4vw,3rem);">
+  <section class="cta-band" id="contact" style="min-height:auto; padding: var(--section-y-lg) var(--col-pad-x);">
     <div class="cta-band-bg"></div>
     <img class="cta-af-mark" src="af-brand.png" alt="" aria-hidden="true">
     <div class="cta-band-content" style="max-width:860px;">
@@ -936,9 +936,7 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       const heroEl = document.getElementById('hero-typed');
-      const ctaEl  = document.getElementById('cta-typed');
       typeWriter(heroEl, 'Bred to Win. Raised with Pride.', 80);
-      setTimeout(() => typeWriter(ctaEl, 'Ready to Raise Your Program?', 70), 2000);
     });
 
     function scrollCarousel(id, amount) {
