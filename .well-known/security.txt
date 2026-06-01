@@ -1,0 +1,4 @@
+Contact: mailto:aaronfamilylivestock@gmail.com
+Preferred-Languages: en
+Canonical: https://aaronfamilylivestock.com/.well-known/security.txt
+Policy: https://aaronfamilylivestock.com/
