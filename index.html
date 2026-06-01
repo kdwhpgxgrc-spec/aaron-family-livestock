@@ -40,7 +40,7 @@
       --section-y-md:   85px;
       --section-y-sm:   65px;
       --col-pad-y:      5%;
-      --col-pad-x:      var(--col-pad-x);
+      --col-pad-x:      clamp(1rem, 5vw, 4.5rem);
       --gap:            1rem;
 
       --radius-btn:     0.35em;
@@ -57,6 +57,7 @@
       font-weight: var(--weight-body);
       line-height: var(--lh-body);
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
     img, video { display: block; max-width: 100%; }
@@ -136,40 +137,45 @@
       white-space: nowrap;
       flex-shrink: 0;
     }
-    /* ── Full-span frosted logo band ── */
+    /* ── Cropped logo readability frost ── */
     .hero-logo-wrap {
       position: relative;
+      align-self: stretch;
       width: 100%;
+      min-width: 0;
       z-index: 2;
-      margin-bottom: 1.5rem;
+      margin: clamp(1rem, 3vh, 2rem) 0 clamp(1.5rem, 4vh, 2.75rem);
     }
     .hero-logo-wrap::before {
       content: '';
       position: absolute;
-      inset: 0;
-      /* lighter center where logo sits, blends left & right to full frost */
-      background: radial-gradient(ellipse 70% 100% at center,
-        rgba(255,255,255,0.18) 0%,
-        rgba(255,255,255,0.12) 50%,
-        rgba(255,255,255,0.08) 100%
+      top: 50%;
+      left: 50%;
+      width: min(72vw, 720px);
+      height: clamp(105px, 15vw, 165px);
+      transform: translate(-50%, -50%);
+      background: radial-gradient(ellipse at center,
+        rgba(0,0,0,0.22) 0%,
+        rgba(0,0,0,0.12) 42%,
+        rgba(0,0,0,0.03) 64%,
+        transparent 100%
       );
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      /* fade out top & bottom — horizontal band, full-width left↔right */
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
       -webkit-mask-image: linear-gradient(to bottom,
         transparent 0%,
-        rgba(0,0,0,0.7) 15%,
-        black 28%,
-        black 72%,
-        rgba(0,0,0,0.7) 85%,
+        rgba(0,0,0,0.85) 24%,
+        black 38%,
+        black 62%,
+        rgba(0,0,0,0.85) 76%,
         transparent 100%
       );
       mask-image: linear-gradient(to bottom,
         transparent 0%,
-        rgba(0,0,0,0.7) 15%,
-        black 28%,
-        black 72%,
-        rgba(0,0,0,0.7) 85%,
+        rgba(0,0,0,0.85) 24%,
+        black 38%,
+        black 62%,
+        rgba(0,0,0,0.85) 76%,
         transparent 100%
       );
       pointer-events: none;
@@ -178,13 +184,14 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      padding: 55px 4vw;
+      min-width: 0;
+      padding: clamp(1.75rem, 5vw, 3.25rem) 0;
       display: flex;
       justify-content: center;
     }
     .hero-logo-seal img {
-      width: 100%;
-      max-width: 1000px;
+      width: clamp(300px, 64vw, 860px);
+      max-width: calc(100vw - 2rem);
       height: auto;
       display: block;
       filter: drop-shadow(0 2px 14px rgba(0,0,0,0.92));
@@ -240,7 +247,9 @@
     .hero-content {
       position: relative;
       z-index: 2;
+      width: min(100%, 820px);
       max-width: 820px;
+      min-width: 0;
       padding: 0 var(--col-pad-x);
     }
     .hero-script {
@@ -261,12 +270,17 @@
       letter-spacing: 0.02em;
       color: var(--white);
       margin-bottom: 0.4em;
+      overflow-wrap: normal;
+      min-height: 1em;
     }
     .cursor {
       display: inline-block;
       color: var(--primary);
+      margin-left: 0.03em;
+      transform: translateY(-0.02em);
       animation: blink 0.8s step-end infinite;
     }
+    .cursor.is-complete { display: none; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
     .hero-lede {
       font-size: 1.125rem;
@@ -513,7 +527,9 @@
     }
 
     @media (max-width: 978px) { .two-col-grid { grid-template-columns: 1fr; } .footer-top { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } #sires-track { grid-template-columns: repeat(2,1fr) !important; } }
-    @media (max-width: 766px) { .hero-headline { font-size: 3em; } .section-headline { font-size: 2.2rem; } .carousel-section, .two-col-section, .cta-band, .hero { min-height: auto; padding-top: 100px; padding-bottom: 80px; } .footer-top { grid-template-columns: 1fr; } #sires-track { grid-template-columns: 1fr !important; } }
+    @media (max-width: 766px) { .hero-logo-wrap { margin-top: 1.25rem; margin-bottom: 1.25rem; } .hero-headline { font-size: 3em; } .section-headline { font-size: 2.2rem; } .carousel-section, .two-col-section, .cta-band, .hero { min-height: auto; padding-top: 100px; padding-bottom: 80px; } .footer-top { grid-template-columns: 1fr; } #sires-track { grid-template-columns: 1fr !important; } }
+    @media (max-width: 600px) { .nav { padding-right: 0.75rem; } .nav-brand { padding-inline: 1rem; font-size: 0.9rem; } .nav-cta { display: none; } .hero-logo-seal img { width: min(88vw, 350px); } }
+    @media (max-width: 480px) { .hero-headline { font-size: 2.45rem; } }
     @media (max-width: 700px) { #show-record [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; } }
 
     /* ── Ken Burns hero ── */
@@ -602,7 +618,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-logo-wrap">
       <div class="hero-logo-seal">
-        <img src="logo-hero.png" alt="Aaron Family Livestock">
+        <img src="logo-hero-final.png?v=4" alt="Aaron Family Livestock">
       </div>
     </div>
 <div class="hero-content">
@@ -923,13 +939,30 @@
   <script>
     function typeWriter(el, text, speed) {
       if (!el) return;
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       let i = 0;
       el.innerHTML = '';
-      const cursor = '<span class="cursor">|</span>';
+      const textNode = document.createElement('span');
+      const cursor = document.createElement('span');
+      cursor.className = 'cursor';
+      cursor.setAttribute('aria-hidden', 'true');
+      cursor.textContent = '|';
+      el.append(textNode, cursor);
+
+      if (prefersReducedMotion) {
+        textNode.textContent = text;
+        cursor.classList.add('is-complete');
+        return;
+      }
+
       function tick() {
-        el.innerHTML = text.slice(0, i) + cursor;
+        textNode.textContent = text.slice(0, i);
+        if (i >= text.length) {
+          cursor.classList.add('is-complete');
+          return;
+        }
         i++;
-        if (i <= text.length) setTimeout(tick, speed);
+        window.setTimeout(tick, speed);
       }
       tick();
     }
