@@ -137,7 +137,7 @@
       white-space: nowrap;
       flex-shrink: 0;
     }
-    /* ── Cropped logo readability frost ── */
+    /* ── 3D hero logo ── */
     .hero-logo-wrap {
       position: relative;
       align-self: stretch;
@@ -145,40 +145,6 @@
       min-width: 0;
       z-index: 2;
       margin: clamp(1rem, 3vh, 2rem) 0 clamp(1.5rem, 4vh, 2.75rem);
-    }
-    .hero-logo-wrap::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: min(72vw, 720px);
-      height: clamp(105px, 15vw, 165px);
-      transform: translate(-50%, -50%);
-      background: radial-gradient(ellipse at center,
-        rgba(0,0,0,0.22) 0%,
-        rgba(0,0,0,0.12) 42%,
-        rgba(0,0,0,0.03) 64%,
-        transparent 100%
-      );
-      backdrop-filter: blur(3px);
-      -webkit-backdrop-filter: blur(3px);
-      -webkit-mask-image: linear-gradient(to bottom,
-        transparent 0%,
-        rgba(0,0,0,0.85) 24%,
-        black 38%,
-        black 62%,
-        rgba(0,0,0,0.85) 76%,
-        transparent 100%
-      );
-      mask-image: linear-gradient(to bottom,
-        transparent 0%,
-        rgba(0,0,0,0.85) 24%,
-        black 38%,
-        black 62%,
-        rgba(0,0,0,0.85) 76%,
-        transparent 100%
-      );
-      pointer-events: none;
     }
     .hero-logo-seal {
       position: relative;
@@ -189,12 +155,48 @@
       display: flex;
       justify-content: center;
     }
-    .hero-logo-seal img {
+    .hero-logo-3d {
+      position: relative;
+      width: clamp(300px, 64vw, 860px);
+      max-width: calc(100vw - 2rem);
+      aspect-ratio: 1031 / 532;
+      perspective: 1200px;
+    }
+    .hero-logo-3d canvas,
+    .hero-logo-fallback {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-logo-3d canvas {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+    .hero-logo-3d.is-ready canvas { opacity: 1; }
+    .hero-logo-3d:not(.is-ready) .hero-logo-fallback {
+      animation: logoTurntableFallback 9s linear infinite;
+      transform-origin: center center;
+      transform-style: preserve-3d;
+    }
+    .hero-logo-fallback {
       width: clamp(300px, 64vw, 860px);
       max-width: calc(100vw - 2rem);
       height: auto;
       display: block;
       filter: drop-shadow(0 2px 14px rgba(0,0,0,0.92));
+      object-fit: contain;
+      opacity: 1;
+      transition: opacity 0.35s ease;
+    }
+    .hero-logo-3d.is-ready .hero-logo-fallback { opacity: 0; }
+    @keyframes logoTurntableFallback {
+      from { transform: rotateY(0deg); }
+      to { transform: rotateY(360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-logo-3d:not(.is-ready) .hero-logo-fallback { animation: none; }
     }
     .nav-links {
       display: flex;
@@ -528,7 +530,7 @@
 
     @media (max-width: 978px) { .two-col-grid { grid-template-columns: 1fr; } .footer-top { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } #sires-track { grid-template-columns: repeat(2,1fr) !important; } }
     @media (max-width: 766px) { .hero-logo-wrap { margin-top: 1.25rem; margin-bottom: 1.25rem; } .hero-headline { font-size: 3em; } .section-headline { font-size: 2.2rem; } .carousel-section, .two-col-section, .cta-band, .hero { min-height: auto; padding-top: 100px; padding-bottom: 80px; } .footer-top { grid-template-columns: 1fr; } #sires-track { grid-template-columns: 1fr !important; } }
-    @media (max-width: 600px) { .nav { padding-right: 0.75rem; } .nav-brand { padding-inline: 1rem; font-size: 0.9rem; } .nav-cta { display: none; } .hero-logo-seal img { width: min(88vw, 350px); } }
+    @media (max-width: 600px) { .nav { padding-right: 0.75rem; } .nav-brand { padding-inline: 1rem; font-size: 0.9rem; } .nav-cta { display: none; } .hero-logo-3d, .hero-logo-fallback { width: min(88vw, 350px); } }
     @media (max-width: 480px) { .hero-headline { font-size: 2.45rem; } }
     @media (max-width: 700px) { #show-record [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; } }
 
@@ -618,7 +620,9 @@
     <div class="hero-overlay"></div>
     <div class="hero-logo-wrap">
       <div class="hero-logo-seal">
-        <img src="logo-hero-final.png?v=4" alt="Aaron Family Livestock">
+        <div class="hero-logo-3d" data-logo-src="logo-hero-final.png?v=4" aria-label="Aaron Family Livestock">
+          <img class="hero-logo-fallback" src="logo-hero-final.png?v=4" alt="Aaron Family Livestock">
+        </div>
       </div>
     </div>
 <div class="hero-content">
@@ -935,6 +939,82 @@
       <img src="af-brand.png" alt="Aaron Family Livestock brand" style="width:clamp(200px,35vw,420px); opacity:1; filter:brightness(0) invert(1); display:block; margin:0 auto;">
     </div>
   </footer>
+
+  <script type="module">
+    import * as THREE from 'https://unpkg.com/three@0.164.1/build/three.module.js';
+
+    const logo3dEl = document.querySelector('.hero-logo-3d');
+    const allowMotion = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (logo3dEl && allowMotion) {
+      const canvas = document.createElement('canvas');
+      logo3dEl.prepend(canvas);
+
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+        antialias: true,
+        powerPreference: 'high-performance'
+      });
+      renderer.setClearColor(0x000000, 0);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 100);
+      camera.position.set(0, 0, 5.7);
+
+      const logoGroup = new THREE.Group();
+      scene.add(logoGroup);
+
+      const loader = new THREE.TextureLoader();
+      loader.load(logo3dEl.dataset.logoSrc, (texture) => {
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+
+        const logoAspect = 1031 / 532;
+        const logoHeight = 2.65;
+        const geometry = new THREE.PlaneGeometry(logoHeight * logoAspect, logoHeight);
+
+        const faceMaterial = new THREE.MeshBasicMaterial({
+          map: texture,
+          transparent: true,
+          alphaTest: 0.04,
+          depthWrite: false,
+          side: THREE.DoubleSide
+        });
+
+        const face = new THREE.Mesh(geometry, faceMaterial);
+        logoGroup.add(face);
+
+        logo3dEl.classList.add('is-ready');
+        animate();
+      });
+
+      const resizeLogoScene = () => {
+        const rect = logo3dEl.getBoundingClientRect();
+        const width = Math.max(1, Math.round(rect.width));
+        const height = Math.max(1, Math.round(rect.height));
+        renderer.setSize(width, height, false);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+      };
+
+      const resizeObserver = new ResizeObserver(resizeLogoScene);
+      resizeObserver.observe(logo3dEl);
+      resizeLogoScene();
+
+      const clock = new THREE.Clock();
+      function animate() {
+        const t = clock.getElapsedTime();
+        const spinDuration = 9;
+        logoGroup.rotation.y = (t / spinDuration) * Math.PI * 2;
+        logoGroup.rotation.x = Math.sin(t * 0.5) * 0.025;
+        logoGroup.rotation.z = Math.sin(t * 0.32) * 0.008;
+        renderer.render(scene, camera);
+        window.requestAnimationFrame(animate);
+      }
+    }
+  </script>
 
   <script>
     function typeWriter(el, text, speed) {
