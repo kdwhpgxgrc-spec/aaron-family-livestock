@@ -379,16 +379,22 @@
       --delay: calc(var(--i) * 42ms);
       display: inline-block;
       position: relative;
-      color: #fff8ea;
+      color: #ffffff;
       transform: translate3d(0, 0.46em, -80px) rotateX(62deg) rotateY(-18deg);
       transform-origin: 50% 75%;
       opacity: 0;
       text-shadow:
-        1px 1px 0 #b78a42,
-        2px 2px 0 #8f6424,
-        3px 3px 0 #633f14,
-        4px 4px 0 #2a1607,
-        7px 10px 14px rgba(0, 0, 0, 0.74);
+        0 -1px 0 #ffffff,
+        0 1px 0 #f4f7ff,
+        1px 1px 0 #d7dce8,
+        2px 2px 0 #aeb6c8,
+        3px 3px 0 #7f0010,
+        4px 4px 0 #65000b,
+        5px 5px 0 #4d0008,
+        6px 6px 0 #330005,
+        7px 7px 0 #1b0003,
+        9px 12px 2px rgba(0, 0, 0, 0.74),
+        14px 18px 22px rgba(0, 0, 0, 0.88);
       animation:
         headlineBlockStamp 780ms cubic-bezier(0.18, 0.92, 0.24, 1.18) var(--delay) forwards,
         headlineArenaSweep 4.8s ease-in-out calc(900ms + var(--delay)) infinite;
@@ -397,12 +403,14 @@
       content: attr(data-char);
       position: absolute;
       inset: 0;
-      color: rgba(80, 0, 0, 0.62);
-      transform: translate3d(0.075em, 0.075em, -1px);
+      color: #500000;
+      transform: translate3d(0.105em, 0.105em, -2px);
       z-index: -1;
       text-shadow:
-        1px 1px 0 rgba(80, 0, 0, 0.9),
-        2px 2px 0 rgba(28, 8, 4, 0.82);
+        1px 1px 0 #3a0005,
+        2px 2px 0 #250003,
+        3px 3px 0 #120001,
+        6px 7px 6px rgba(0, 0, 0, 0.9);
     }
     .headline-char:nth-child(odd) {
       animation-name: headlineBlockStampOdd, headlineArenaSweep;
@@ -427,20 +435,32 @@
     @keyframes headlineArenaSweep {
       0%, 100% {
         text-shadow:
-          1px 1px 0 #b78a42,
-          2px 2px 0 #8f6424,
-          3px 3px 0 #633f14,
-          4px 4px 0 #2a1607,
-          7px 10px 14px rgba(0, 0, 0, 0.74);
+          0 -1px 0 #ffffff,
+          0 1px 0 #f4f7ff,
+          1px 1px 0 #d7dce8,
+          2px 2px 0 #aeb6c8,
+          3px 3px 0 #7f0010,
+          4px 4px 0 #65000b,
+          5px 5px 0 #4d0008,
+          6px 6px 0 #330005,
+          7px 7px 0 #1b0003,
+          9px 12px 2px rgba(0, 0, 0, 0.74),
+          14px 18px 22px rgba(0, 0, 0, 0.88);
       }
       50% {
         text-shadow:
-          1px 1px 0 #f4d18b,
-          2px 2px 0 #bd8b34,
-          3px 3px 0 #744916,
-          4px 4px 0 #2a1607,
-          0 0 20px rgba(255, 244, 205, 0.28),
-          10px 14px 18px rgba(0, 0, 0, 0.76);
+          0 -1px 0 #ffffff,
+          0 1px 0 #ffffff,
+          1px 1px 0 #eef3ff,
+          2px 2px 0 #cdd5e8,
+          3px 3px 0 #970015,
+          4px 4px 0 #75000e,
+          5px 5px 0 #560009,
+          6px 6px 0 #3a0005,
+          8px 8px 0 #1b0003,
+          0 0 20px rgba(255, 255, 255, 0.5),
+          10px 14px 4px rgba(0, 0, 0, 0.8),
+          16px 20px 26px rgba(0, 0, 0, 0.92);
       }
     }
     .cursor {
