@@ -7,7 +7,7 @@
   <meta name="description" content="Aaron Family Livestock raises registered Angus show cattle, AI sire genetics, embryo calves, and foundation females in Gladewater, Texas.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://aaronfamilylivestock.com; font-src 'self' https://fonts.gstatic.com; media-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://aaronfamilylivestock.com; font-src 'self' https://fonts.gstatic.com; media-src 'self'; connect-src 'self' https://unpkg.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <link rel="canonical" href="https://aaronfamilylivestock.com/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Aaron Family Livestock LLC — Registered Angus Show Cattle">
@@ -358,110 +358,28 @@
       font-weight: var(--weight-nav);
       font-size: clamp(3.2rem, 5.4vw, 4.7rem);
       text-transform: uppercase;
-      line-height: 0.9;
+      line-height: 0.95;
       letter-spacing: 0;
       color: var(--white);
       margin-bottom: 0.4em;
-      min-height: 1.7em;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.08em 0.18em;
-      perspective: 900px;
-      transform-style: preserve-3d;
-    }
-    .headline-word {
-      display: inline-flex;
-      white-space: nowrap;
-      transform-style: preserve-3d;
-    }
-    .headline-char {
-      --delay: calc(var(--i) * 42ms);
-      display: inline-block;
+      min-height: clamp(142px, 12vw, 172px);
+      height: clamp(142px, 12vw, 172px);
       position: relative;
-      color: #ffffff;
-      transform: translate3d(0, 0.46em, -80px) rotateX(62deg) rotateY(-18deg);
-      transform-origin: 50% 75%;
-      opacity: 0;
+      overflow: visible;
       text-shadow:
         0 -1px 0 #ffffff,
-        0 1px 0 #f4f7ff,
-        1px 1px 0 #d7dce8,
-        2px 2px 0 #aeb6c8,
-        3px 3px 0 #7f0010,
-        4px 4px 0 #65000b,
-        5px 5px 0 #4d0008,
-        6px 6px 0 #330005,
-        7px 7px 0 #1b0003,
-        9px 12px 2px rgba(0, 0, 0, 0.74),
-        14px 18px 22px rgba(0, 0, 0, 0.88);
-      animation:
-        headlineBlockStamp 780ms cubic-bezier(0.18, 0.92, 0.24, 1.18) var(--delay) forwards,
-        headlineArenaSweep 4.8s ease-in-out calc(900ms + var(--delay)) infinite;
+        0 4px 0 #500000,
+        0 10px 18px rgba(0, 0, 0, 0.85);
     }
-    .headline-char::after {
-      content: attr(data-char);
-      position: absolute;
-      inset: 0;
-      color: #500000;
-      transform: translate3d(0.105em, 0.105em, -2px);
-      z-index: -1;
-      text-shadow:
-        1px 1px 0 #3a0005,
-        2px 2px 0 #250003,
-        3px 3px 0 #120001,
-        6px 7px 6px rgba(0, 0, 0, 0.9);
-    }
-    .headline-char:nth-child(odd) {
-      animation-name: headlineBlockStampOdd, headlineArenaSweep;
-    }
-    .headline-char.is-space {
-      width: 0.22em;
+    .hero-headline.is-3d {
+      margin-bottom: clamp(0.35rem, 1vw, 0.7rem);
       text-shadow: none;
     }
-    .headline-char.is-space::after {
-      content: none;
-    }
-    @keyframes headlineBlockStamp {
-      0% { opacity: 0; transform: translate3d(0, 0.5em, -90px) rotateX(65deg) rotateY(-20deg); filter: brightness(0.65); }
-      62% { opacity: 1; transform: translate3d(0, -0.08em, 34px) rotateX(-8deg) rotateY(9deg); filter: brightness(1.18); }
-      100% { opacity: 1; transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); filter: brightness(1); }
-    }
-    @keyframes headlineBlockStampOdd {
-      0% { opacity: 0; transform: translate3d(0, 0.5em, -90px) rotateX(65deg) rotateY(20deg); filter: brightness(0.65); }
-      62% { opacity: 1; transform: translate3d(0, -0.08em, 34px) rotateX(-8deg) rotateY(-9deg); filter: brightness(1.18); }
-      100% { opacity: 1; transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); filter: brightness(1); }
-    }
-    @keyframes headlineArenaSweep {
-      0%, 100% {
-        text-shadow:
-          0 -1px 0 #ffffff,
-          0 1px 0 #f4f7ff,
-          1px 1px 0 #d7dce8,
-          2px 2px 0 #aeb6c8,
-          3px 3px 0 #7f0010,
-          4px 4px 0 #65000b,
-          5px 5px 0 #4d0008,
-          6px 6px 0 #330005,
-          7px 7px 0 #1b0003,
-          9px 12px 2px rgba(0, 0, 0, 0.74),
-          14px 18px 22px rgba(0, 0, 0, 0.88);
-      }
-      50% {
-        text-shadow:
-          0 -1px 0 #ffffff,
-          0 1px 0 #ffffff,
-          1px 1px 0 #eef3ff,
-          2px 2px 0 #cdd5e8,
-          3px 3px 0 #970015,
-          4px 4px 0 #75000e,
-          5px 5px 0 #560009,
-          6px 6px 0 #3a0005,
-          8px 8px 0 #1b0003,
-          0 0 20px rgba(255, 255, 255, 0.5),
-          10px 14px 4px rgba(0, 0, 0, 0.8),
-          16px 20px 26px rgba(0, 0, 0, 0.92);
-      }
+    .headline-3d-canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
     }
     .cursor {
       display: inline-block;
@@ -727,17 +645,13 @@
     }
 
     @media (max-width: 978px) { .two-col-grid, .faq-grid { grid-template-columns: 1fr !important; } .footer-top { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } #sires-track { grid-template-columns: repeat(4, minmax(300px, 42vw)); } }
-    @media (max-width: 766px) { .hero-logo-wrap { margin-top: 1.25rem; margin-bottom: 1.25rem; } .hero-content { max-width: 820px; } .hero-headline { font-size: 3em; min-height: 2.6em; } .section-headline { font-size: 2.2rem; } .carousel-section, .two-col-section, .cta-band, .hero { min-height: auto; padding-top: 100px; padding-bottom: 80px; } .footer-top { grid-template-columns: 1fr; } #sires-track { grid-template-rows: 1fr; grid-template-columns: repeat(6, minmax(280px, 82vw)); } }
+    @media (max-width: 766px) { .hero-logo-wrap { margin-top: 1.25rem; margin-bottom: 1.25rem; } .hero-content { max-width: 820px; } .hero-headline { font-size: 3em; min-height: 150px; height: 150px; } .section-headline { font-size: 2.2rem; } .carousel-section, .two-col-section, .cta-band, .hero { min-height: auto; padding-top: 100px; padding-bottom: 80px; } .footer-top { grid-template-columns: 1fr; } #sires-track { grid-template-rows: 1fr; grid-template-columns: repeat(6, minmax(280px, 82vw)); } }
     @media (max-width: 600px) { .nav { padding-right: 0.75rem; } .nav-brand { padding-inline: 1rem; font-size: 0.9rem; } .nav-cta { display: none; } .hero-logo-3d, .hero-logo-fallback { width: min(88vw, 350px); } }
-    @media (max-width: 480px) { .hero-headline { font-size: 2.35rem; gap: 0.07em 0.14em; } }
+    @media (max-width: 480px) { .hero-headline { font-size: 2.35rem; min-height: 142px; height: 142px; } }
     @media (max-width: 700px) { #show-record [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; } }
     @media (prefers-reduced-motion: reduce) {
-      .headline-char,
-      .headline-char:nth-child(odd) {
+      .headline-3d-canvas {
         animation: none;
-        opacity: 1;
-        transform: none;
-        filter: none;
       }
     }
 
@@ -1169,8 +1083,19 @@
     </div>
   </footer>
 
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.164.1/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.164.1/examples/jsm/"
+      }
+    }
+  </script>
+
   <script type="module">
-    import * as THREE from 'https://unpkg.com/three@0.164.1/build/three.module.js';
+    import * as THREE from 'three';
+    import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+    import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 
     const logo3dEl = document.querySelector('.hero-logo-3d');
     const allowMotion = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1243,52 +1168,185 @@
         window.requestAnimationFrame(animate);
       }
     }
+
+    const headline3dEl = document.getElementById('hero-typed');
+    if (headline3dEl) {
+      const fontLoader = new FontLoader();
+      fontLoader.load(
+        'https://unpkg.com/three@0.164.1/examples/fonts/helvetiker_bold.typeface.json',
+        (font) => buildHeadline3D(headline3dEl, font),
+        undefined,
+        () => {}
+      );
+    }
+
+    function buildHeadline3D(el, font) {
+      const textLines = ['BRED TO WIN.', 'RAISED WITH', 'PRIDE.'];
+      const canvas = document.createElement('canvas');
+      canvas.className = 'headline-3d-canvas';
+      el.textContent = '';
+      el.setAttribute('aria-label', 'Bred to Win. Raised with Pride.');
+      el.classList.add('is-3d');
+      el.appendChild(canvas);
+
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+        antialias: true,
+        powerPreference: 'high-performance'
+      });
+      renderer.setClearColor(0x000000, 0);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(24, 1, 0.1, 100);
+      camera.position.set(0, 0.15, 7.2);
+
+      const root = new THREE.Group();
+      root.rotation.x = -0.22;
+      root.rotation.y = -0.2;
+      scene.add(root);
+
+      const faceMaterial = new THREE.MeshPhongMaterial({
+        color: 0xffffff,
+        emissive: 0x1f1f1f,
+        specular: 0xffffff,
+        shininess: 95
+      });
+      const sideMaterial = new THREE.MeshPhongMaterial({
+        color: 0x500000,
+        emissive: 0x120000,
+        specular: 0x9b2020,
+        shininess: 38
+      });
+      const shadowMaterial = new THREE.MeshBasicMaterial({
+        color: 0x050000,
+        transparent: true,
+        opacity: 0.55
+      });
+
+      const ambient = new THREE.AmbientLight(0xffffff, 1.65);
+      scene.add(ambient);
+
+      const keyLight = new THREE.DirectionalLight(0xffffff, 3.2);
+      keyLight.position.set(-2.3, 3.4, 4.6);
+      keyLight.castShadow = true;
+      scene.add(keyLight);
+
+      const rimLight = new THREE.DirectionalLight(0xd6e4ff, 1.35);
+      rimLight.position.set(3.5, 2.2, 2.8);
+      scene.add(rimLight);
+
+      const maroonBounce = new THREE.PointLight(0x8b0000, 2.2, 9);
+      maroonBounce.position.set(0, -1.9, 2.7);
+      scene.add(maroonBounce);
+
+      const letterMeshes = [];
+      const lineGap = 1.08;
+      const charGap = 0.055;
+      const spaceGap = 0.42;
+
+      textLines.forEach((line, lineIndex) => {
+        const lineGroup = new THREE.Group();
+        const shadowGroup = new THREE.Group();
+        let cursorX = 0;
+
+        [...line].forEach((char) => {
+          if (char === ' ') {
+            cursorX += spaceGap;
+            return;
+          }
+
+          const geometry = new TextGeometry(char, {
+            font,
+            size: 1,
+            height: 0.68,
+            depth: 0.68,
+            curveSegments: 10,
+            bevelEnabled: true,
+            bevelThickness: 0.045,
+            bevelSize: 0.028,
+            bevelSegments: 4
+          });
+          geometry.computeBoundingBox();
+          const box = geometry.boundingBox;
+          const charWidth = box.max.x - box.min.x;
+          geometry.translate(-box.min.x, -box.min.y, -0.34);
+          geometry.computeVertexNormals();
+
+          const mesh = new THREE.Mesh(geometry, [faceMaterial, sideMaterial]);
+          mesh.position.x = cursorX;
+          mesh.castShadow = true;
+          mesh.receiveShadow = true;
+          mesh.userData.index = letterMeshes.length;
+          lineGroup.add(mesh);
+          letterMeshes.push(mesh);
+
+          const shadow = new THREE.Mesh(geometry.clone(), shadowMaterial);
+          shadow.position.set(cursorX + 0.13, -0.13, -0.82);
+          shadow.rotation.x = -0.03;
+          shadowGroup.add(shadow);
+
+          cursorX += charWidth + charGap;
+        });
+
+        lineGroup.position.x = -cursorX / 2;
+        shadowGroup.position.x = -cursorX / 2;
+        lineGroup.position.y = ((textLines.length - 1) / 2 - lineIndex) * lineGap;
+        shadowGroup.position.y = lineGroup.position.y;
+        root.add(shadowGroup, lineGroup);
+      });
+
+      const box = new THREE.Box3().setFromObject(root);
+      const size = new THREE.Vector3();
+      const center = new THREE.Vector3();
+      box.getSize(size);
+      box.getCenter(center);
+      root.position.sub(center);
+
+      function resizeHeadlineScene() {
+        const rect = el.getBoundingClientRect();
+        const width = Math.max(1, Math.round(rect.width));
+        const height = Math.max(1, Math.round(rect.height));
+        renderer.setSize(width, height, false);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+
+        const visibleHeight = 2 * camera.position.z * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+        const visibleWidth = visibleHeight * camera.aspect;
+        const nextScale = Math.min((visibleWidth * 0.92) / size.x, (visibleHeight * 0.78) / size.y);
+        root.scale.setScalar(nextScale);
+      }
+
+      const resizeObserver = new ResizeObserver(resizeHeadlineScene);
+      resizeObserver.observe(el);
+      resizeHeadlineScene();
+
+      const clock = new THREE.Clock();
+      function animateHeadline() {
+        const t = clock.getElapsedTime();
+        if (allowMotion) {
+          root.rotation.y = -0.2 + Math.sin(t * 0.7) * 0.11;
+          root.rotation.z = Math.sin(t * 0.42) * 0.012;
+          letterMeshes.forEach((mesh) => {
+            const i = mesh.userData.index;
+            const intro = Math.min(1, Math.max(0, (t - i * 0.035) / 0.72));
+            const ease = 1 - Math.pow(1 - intro, 3);
+            mesh.position.z = -0.8 + ease * 0.8 + Math.sin(t * 1.4 + i * 0.45) * 0.028;
+            mesh.rotation.y = (1 - ease) * -0.6 + Math.sin(t * 1.2 + i * 0.3) * 0.025;
+            mesh.rotation.x = (1 - ease) * 0.42;
+          });
+        }
+        renderer.render(scene, camera);
+        window.requestAnimationFrame(animateHeadline);
+      }
+      animateHeadline();
+    }
   </script>
 
   <script>
-    function renderBlockHeadline(el, text) {
-      if (!el) return;
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      el.innerHTML = '';
-      el.setAttribute('aria-label', text);
-
-      let charIndex = 0;
-      text.split(' ').forEach((word, wordIndex, words) => {
-        const wordEl = document.createElement('span');
-        wordEl.className = 'headline-word';
-        wordEl.setAttribute('aria-hidden', 'true');
-
-        [...word].forEach((char) => {
-          const charEl = document.createElement('span');
-          charEl.className = 'headline-char';
-          charEl.style.setProperty('--i', charIndex);
-          charEl.dataset.char = char;
-          charEl.textContent = char;
-          wordEl.appendChild(charEl);
-          charIndex++;
-        });
-
-        el.appendChild(wordEl);
-
-        if (wordIndex < words.length - 1) {
-          const spacer = document.createElement('span');
-          spacer.className = 'headline-char is-space';
-          spacer.style.setProperty('--i', charIndex);
-          spacer.setAttribute('aria-hidden', 'true');
-          spacer.textContent = ' ';
-          el.appendChild(spacer);
-          charIndex++;
-        }
-      });
-
-      if (prefersReducedMotion) return;
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const heroEl = document.getElementById('hero-typed');
-      renderBlockHeadline(heroEl, 'Bred to Win. Raised with Pride.');
-    });
-
     function scrollCarousel(id, amount) {
       const el = document.getElementById(id);
       if (el) el.scrollBy({ left: amount, behavior: 'smooth' });
