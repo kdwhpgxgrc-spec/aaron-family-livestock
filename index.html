@@ -13,7 +13,7 @@
   <meta property="og:title" content="Aaron Family Livestock LLC — Registered Angus Show Cattle">
   <meta property="og:description" content="Registered Angus genetics, AI sires, embryo calves, and show cattle raised by Aaron Family Livestock in Gladewater, Texas.">
   <meta property="og:url" content="https://aaronfamilylivestock.com/">
-  <meta property="og:image" content="https://aaronfamilylivestock.com/logo-hero-final.png">
+  <meta property="og:image" content="https://aaronfamilylivestock.com/hero-logo-static.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <script type="application/ld+json">
   {
@@ -24,7 +24,7 @@
         "@id": "https://aaronfamilylivestock.com/#business",
         "name": "Aaron Family Livestock LLC",
         "url": "https://aaronfamilylivestock.com/",
-        "logo": "https://aaronfamilylivestock.com/logo-hero-final.png",
+        "logo": "https://aaronfamilylivestock.com/hero-logo-static.jpg",
         "image": "https://aaronfamilylivestock.com/hero.jpg",
         "description": "Aaron Family Livestock is a registered Angus operation in Gladewater, Texas, focused on AI sire genetics, embryo calves, foundation females, and show cattle bred for competitive families.",
         "telephone": "+1-832-330-6542",
@@ -227,7 +227,7 @@
       white-space: nowrap;
       flex-shrink: 0;
     }
-    /* ── 3D hero logo ── */
+    /* ── Static hero logo ── */
     .hero-logo-wrap {
       position: relative;
       align-self: stretch;
@@ -245,48 +245,13 @@
       display: flex;
       justify-content: center;
     }
-    .hero-logo-3d {
-      position: relative;
-      width: clamp(300px, 64vw, 860px);
-      max-width: calc(100vw - 2rem);
-      aspect-ratio: 1031 / 532;
-      perspective: 1200px;
-    }
-    .hero-logo-3d canvas,
-    .hero-logo-fallback {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .hero-logo-3d canvas {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.5s ease;
-    }
-    .hero-logo-3d.is-ready canvas { opacity: 1; }
-    .hero-logo-3d:not(.is-ready) .hero-logo-fallback {
-      animation: logoTurntableFallback 9s linear infinite;
-      transform-origin: center center;
-      transform-style: preserve-3d;
-    }
-    .hero-logo-fallback {
+    .hero-logo-static {
       width: clamp(300px, 64vw, 860px);
       max-width: calc(100vw - 2rem);
       height: auto;
       display: block;
       filter: drop-shadow(0 2px 14px rgba(0,0,0,0.92));
       object-fit: contain;
-      opacity: 1;
-      transition: opacity 0.35s ease;
-    }
-    .hero-logo-3d.is-ready .hero-logo-fallback { opacity: 0; }
-    @keyframes logoTurntableFallback {
-      from { transform: rotateY(0deg); }
-      to { transform: rotateY(360deg); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .hero-logo-3d:not(.is-ready) .hero-logo-fallback { animation: none; }
     }
     .nav-links {
       display: flex;
@@ -729,7 +694,7 @@
 
     @media (max-width: 978px) { .two-col-grid, .faq-grid { grid-template-columns: 1fr !important; } .footer-top { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } #sires-track { grid-template-columns: repeat(4, minmax(300px, 42vw)); } }
     @media (max-width: 766px) { .hero-logo-wrap { margin-top: 1.25rem; margin-bottom: 1.25rem; } .hero-content { max-width: 820px; } .hero-headline { font-size: 3em; min-height: 150px; height: 150px; } .section-headline { font-size: 2.2rem; } .carousel-section, .two-col-section, .cta-band, .hero { min-height: auto; padding-top: 100px; padding-bottom: 80px; } .footer-top { grid-template-columns: 1fr; } #sires-track { grid-template-rows: 1fr; grid-template-columns: repeat(6, minmax(280px, 82vw)); } }
-    @media (max-width: 600px) { .nav { padding-right: 0.75rem; } .nav-brand { padding-inline: 1rem; font-size: 0.9rem; } .nav-cta { display: none; } .hero-logo-3d, .hero-logo-fallback { width: min(88vw, 350px); } }
+    @media (max-width: 600px) { .nav { padding-right: 0.75rem; } .nav-brand { padding-inline: 1rem; font-size: 0.9rem; } .nav-cta { display: none; } .hero-logo-static { width: min(88vw, 350px); } }
     @media (max-width: 480px) { .hero-headline { font-size: 2.35rem; min-height: 142px; height: 142px; } }
     @media (max-width: 700px) { #show-record [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; } }
     @media (prefers-reduced-motion: reduce) {
@@ -824,9 +789,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-logo-wrap">
       <div class="hero-logo-seal">
-        <div class="hero-logo-3d" data-logo-src="logo-hero-final.png?v=4" aria-label="Aaron Family Livestock">
-          <img class="hero-logo-fallback" src="logo-hero-final.png?v=4" alt="Aaron Family Livestock">
-        </div>
+        <img class="hero-logo-static" src="hero-logo-static.jpg" alt="Aaron Family Livestock">
       </div>
     </div>
     <div class="hero-content">
@@ -1180,77 +1143,7 @@
     import { FontLoader } from 'three/addons/loaders/FontLoader.js';
     import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 
-    const logo3dEl = document.querySelector('.hero-logo-3d');
     const allowMotion = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (logo3dEl && allowMotion) {
-      const canvas = document.createElement('canvas');
-      logo3dEl.prepend(canvas);
-
-      const renderer = new THREE.WebGLRenderer({
-        canvas,
-        alpha: true,
-        antialias: true,
-        powerPreference: 'high-performance'
-      });
-      renderer.setClearColor(0x000000, 0);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 100);
-      camera.position.set(0, 0, 5.7);
-
-      const logoGroup = new THREE.Group();
-      scene.add(logoGroup);
-
-      const loader = new THREE.TextureLoader();
-      loader.load(logo3dEl.dataset.logoSrc, (texture) => {
-        texture.colorSpace = THREE.SRGBColorSpace;
-        texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
-
-        const logoAspect = 1031 / 532;
-        const logoHeight = 2.65;
-        const geometry = new THREE.PlaneGeometry(logoHeight * logoAspect, logoHeight);
-
-        const faceMaterial = new THREE.MeshBasicMaterial({
-          map: texture,
-          transparent: true,
-          alphaTest: 0.04,
-          depthWrite: false,
-          side: THREE.DoubleSide
-        });
-
-        const face = new THREE.Mesh(geometry, faceMaterial);
-        logoGroup.add(face);
-
-        logo3dEl.classList.add('is-ready');
-        animate();
-      });
-
-      const resizeLogoScene = () => {
-        const rect = logo3dEl.getBoundingClientRect();
-        const width = Math.max(1, Math.round(rect.width));
-        const height = Math.max(1, Math.round(rect.height));
-        renderer.setSize(width, height, false);
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
-      };
-
-      const resizeObserver = new ResizeObserver(resizeLogoScene);
-      resizeObserver.observe(logo3dEl);
-      resizeLogoScene();
-
-      const clock = new THREE.Clock();
-      function animate() {
-        const t = clock.getElapsedTime();
-        const spinDuration = 9;
-        logoGroup.rotation.y = (t / spinDuration) * Math.PI * 2;
-        logoGroup.rotation.x = Math.sin(t * 0.5) * 0.025;
-        logoGroup.rotation.z = Math.sin(t * 0.32) * 0.008;
-        renderer.render(scene, camera);
-        window.requestAnimationFrame(animate);
-      }
-    }
 
     const headline3dEl = document.getElementById('hero-typed');
     if (headline3dEl) {
