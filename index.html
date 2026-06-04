@@ -244,14 +244,36 @@
       padding: clamp(1.75rem, 5vw, 3.25rem) 0;
       display: flex;
       justify-content: center;
+      perspective: 1000px;
     }
     .hero-logo-static {
       width: clamp(300px, 64vw, 860px);
       max-width: calc(100vw - 2rem);
       height: auto;
       display: block;
-      filter: drop-shadow(0 2px 14px rgba(0,0,0,0.92));
+      border-radius: clamp(10px, 1.3vw, 18px);
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      background: #fff;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.86) inset,
+        0 0 0 5px rgba(255, 255, 255, 0.12),
+        0 12px 0 rgba(80, 0, 0, 0.92),
+        0 22px 34px rgba(0, 0, 0, 0.72);
+      filter: saturate(1.05) contrast(1.04);
       object-fit: contain;
+      transform: rotateX(4deg) rotateY(-4deg) translateZ(18px);
+      transform-origin: center center;
+      transform-style: preserve-3d;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, filter 0.28s ease;
+    }
+    .hero-logo-static:hover {
+      transform: rotateX(0deg) rotateY(0deg) translateY(-6px) translateZ(30px);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.92) inset,
+        0 0 0 5px rgba(255, 255, 255, 0.14),
+        0 16px 0 rgba(80, 0, 0, 0.95),
+        0 30px 44px rgba(0, 0, 0, 0.76);
+      filter: saturate(1.08) contrast(1.06);
     }
     .nav-links {
       display: flex;
