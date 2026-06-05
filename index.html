@@ -323,7 +323,7 @@
       z-index: 0;
       pointer-events: none;
       overflow: hidden;
-      opacity: 0.78;
+      opacity: 1;
       mix-blend-mode: screen;
     }
     .hero-atmosphere::before {
@@ -331,10 +331,11 @@
       position: absolute;
       inset: -20%;
       background:
-        radial-gradient(circle at 24% 22%, rgba(255,255,255,0.2), transparent 24%),
-        radial-gradient(circle at 78% 34%, rgba(80,0,0,0.42), transparent 28%),
-        linear-gradient(112deg, transparent 8%, rgba(255,255,255,0.15) 23%, transparent 38%, rgba(80,0,0,0.2) 58%, transparent 76%);
-      filter: blur(18px);
+        radial-gradient(circle at 20% 24%, rgba(255,255,255,0.34), transparent 24%),
+        radial-gradient(circle at 78% 34%, rgba(130,0,18,0.7), transparent 30%),
+        radial-gradient(circle at 52% 72%, rgba(255,255,255,0.16), transparent 22%),
+        linear-gradient(112deg, transparent 6%, rgba(255,255,255,0.24) 22%, transparent 38%, rgba(128,0,18,0.34) 58%, transparent 78%);
+      filter: blur(16px);
       animation: heroLightDrift 28s ease-in-out infinite alternate;
     }
     .hero-atmosphere::after {
@@ -342,12 +343,13 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
-        radial-gradient(circle, rgba(255,255,255,0.22) 0 1px, transparent 1.6px);
-      background-size: 96px 96px, 96px 96px, 130px 130px;
+        linear-gradient(rgba(255,255,255,0.13) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.36) 0 1px, transparent 1.8px),
+        linear-gradient(104deg, transparent 0 22%, rgba(128,0,18,0.22) 38%, rgba(255,255,255,0.16) 50%, transparent 66% 100%);
+      background-size: 82px 82px, 82px 82px, 112px 112px, 100% 100%;
       background-position: 0 0, 0 0, 18px 24px;
-      opacity: 0.22;
+      opacity: 0.42;
       transform: translate3d(0, 0, 0);
       animation: heroGridShimmer 34s linear infinite, heroParticleDrift 46s linear infinite;
     }
@@ -357,8 +359,8 @@
       height: 140vh;
       top: -25vh;
       left: 8vw;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.13), transparent);
-      filter: blur(10px);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), rgba(128,0,18,0.18), transparent);
+      filter: blur(9px);
       transform: rotate(18deg) translateX(-8vw);
       animation: heroBeamSweep 38s ease-in-out infinite alternate;
     }
@@ -366,27 +368,27 @@
       left: auto;
       right: 2vw;
       width: 30vw;
-      opacity: 0.58;
+      opacity: 0.76;
       transform: rotate(-16deg) translateX(5vw);
       animation-duration: 44s;
       animation-delay: -12s;
     }
     @keyframes heroLightDrift {
-      0% { transform: translate3d(-2%, -1%, 0) scale(1); opacity: 0.62; }
-      100% { transform: translate3d(3%, 2%, 0) scale(1.08); opacity: 0.88; }
+      0% { transform: translate3d(-2%, -1%, 0) scale(1); opacity: 0.7; }
+      100% { transform: translate3d(3%, 2%, 0) scale(1.08); opacity: 1; }
     }
     @keyframes heroGridShimmer {
-      0% { opacity: 0.14; }
-      45% { opacity: 0.24; }
-      100% { opacity: 0.16; }
+      0% { opacity: 0.28; }
+      45% { opacity: 0.48; }
+      100% { opacity: 0.32; }
     }
     @keyframes heroParticleDrift {
       from { background-position: 0 0, 0 0, 18px 24px; }
       to { background-position: 96px 48px, -48px 96px, 148px -106px; }
     }
     @keyframes heroBeamSweep {
-      from { transform: rotate(18deg) translateX(-12vw); opacity: 0.26; }
-      to { transform: rotate(18deg) translateX(18vw); opacity: 0.52; }
+      from { transform: rotate(18deg) translateX(-12vw); opacity: 0.42; }
+      to { transform: rotate(18deg) translateX(18vw); opacity: 0.78; }
     }
     .hero-overlay {
       position: absolute;
