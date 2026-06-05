@@ -317,10 +317,83 @@
       height: 100%;
       object-fit: cover;
     }
+    .hero-atmosphere {
+      position: absolute;
+      inset: -12%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0.78;
+      mix-blend-mode: screen;
+    }
+    .hero-atmosphere::before {
+      content: '';
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(circle at 24% 22%, rgba(255,255,255,0.2), transparent 24%),
+        radial-gradient(circle at 78% 34%, rgba(80,0,0,0.42), transparent 28%),
+        linear-gradient(112deg, transparent 8%, rgba(255,255,255,0.15) 23%, transparent 38%, rgba(80,0,0,0.2) 58%, transparent 76%);
+      filter: blur(18px);
+      animation: heroLightDrift 28s ease-in-out infinite alternate;
+    }
+    .hero-atmosphere::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.22) 0 1px, transparent 1.6px);
+      background-size: 96px 96px, 96px 96px, 130px 130px;
+      background-position: 0 0, 0 0, 18px 24px;
+      opacity: 0.22;
+      transform: translate3d(0, 0, 0);
+      animation: heroGridShimmer 34s linear infinite, heroParticleDrift 46s linear infinite;
+    }
+    .hero-beam {
+      position: absolute;
+      width: 38vw;
+      height: 140vh;
+      top: -25vh;
+      left: 8vw;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.13), transparent);
+      filter: blur(10px);
+      transform: rotate(18deg) translateX(-8vw);
+      animation: heroBeamSweep 38s ease-in-out infinite alternate;
+    }
+    .hero-beam:nth-child(2) {
+      left: auto;
+      right: 2vw;
+      width: 30vw;
+      opacity: 0.58;
+      transform: rotate(-16deg) translateX(5vw);
+      animation-duration: 44s;
+      animation-delay: -12s;
+    }
+    @keyframes heroLightDrift {
+      0% { transform: translate3d(-2%, -1%, 0) scale(1); opacity: 0.62; }
+      100% { transform: translate3d(3%, 2%, 0) scale(1.08); opacity: 0.88; }
+    }
+    @keyframes heroGridShimmer {
+      0% { opacity: 0.14; }
+      45% { opacity: 0.24; }
+      100% { opacity: 0.16; }
+    }
+    @keyframes heroParticleDrift {
+      from { background-position: 0 0, 0 0, 18px 24px; }
+      to { background-position: 96px 48px, -48px 96px, 148px -106px; }
+    }
+    @keyframes heroBeamSweep {
+      from { transform: rotate(18deg) translateX(-12vw); opacity: 0.26; }
+      to { transform: rotate(18deg) translateX(18vw); opacity: 0.52; }
+    }
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: var(--overlay-dark);
+      background:
+        radial-gradient(circle at center, rgba(0,0,0,0.12), rgba(0,0,0,0.42) 74%),
+        var(--overlay-dark);
       z-index: 1;
     }
     .hero-content {
@@ -730,6 +803,11 @@
     @media (max-width: 480px) { .hero-headline { font-size: 4.5rem; min-height: 284px; height: 284px; } .hero-headline:not(.is-3d) { font-size: 3.55rem; } }
     @media (max-width: 700px) { #show-record [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; } }
     @media (prefers-reduced-motion: reduce) {
+      .hero-atmosphere::before,
+      .hero-atmosphere::after,
+      .hero-beam {
+        animation: none;
+      }
       .headline-3d-canvas {
         animation: none;
       }
@@ -817,6 +895,10 @@
       <video autoplay muted loop playsinline poster="hero.jpg">
         <source src="hero.mp4" type="video/mp4">
       </video>
+    </div>
+    <div class="hero-atmosphere" aria-hidden="true">
+      <span class="hero-beam"></span>
+      <span class="hero-beam"></span>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-logo-wrap">
