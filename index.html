@@ -108,8 +108,6 @@
       --primary-light:  #500000;
       --white:          #FFFFFF;
       --white-muted:    rgba(255, 255, 255, 0.66);
-      --overlay-dark:   rgba(0, 0, 0, 0.14);
-
       --font-heading:   'Barlow Condensed', sans-serif;
       --font-display:   'Birthstone Bounce', cursive;
       --font-body:      'Barlow Condensed', sans-serif;
@@ -316,88 +314,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(1.28) saturate(1.42) contrast(1.08);
-    }
-    .hero-atmosphere {
-      position: absolute;
-      inset: -12%;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-      opacity: 1;
-      mix-blend-mode: screen;
-    }
-    .hero-atmosphere::before {
-      content: '';
-      position: absolute;
-      inset: -20%;
-      background:
-        radial-gradient(circle at 20% 24%, rgba(255,255,255,0.34), transparent 24%),
-        radial-gradient(circle at 78% 34%, rgba(130,0,18,0.7), transparent 30%),
-        radial-gradient(circle at 52% 72%, rgba(255,255,255,0.16), transparent 22%),
-        linear-gradient(112deg, transparent 6%, rgba(255,255,255,0.24) 22%, transparent 38%, rgba(128,0,18,0.34) 58%, transparent 78%);
-      filter: blur(16px);
-      animation: heroLightDrift 28s ease-in-out infinite alternate;
-    }
-    .hero-atmosphere::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.13) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px),
-        radial-gradient(circle, rgba(255,255,255,0.36) 0 1px, transparent 1.8px),
-        linear-gradient(104deg, transparent 0 22%, rgba(128,0,18,0.22) 38%, rgba(255,255,255,0.16) 50%, transparent 66% 100%);
-      background-size: 82px 82px, 82px 82px, 112px 112px, 100% 100%;
-      background-position: 0 0, 0 0, 18px 24px;
-      opacity: 0.42;
-      transform: translate3d(0, 0, 0);
-      animation: heroGridShimmer 34s linear infinite, heroParticleDrift 46s linear infinite;
-    }
-    .hero-beam {
-      position: absolute;
-      width: 38vw;
-      height: 140vh;
-      top: -25vh;
-      left: 8vw;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), rgba(128,0,18,0.18), transparent);
-      filter: blur(9px);
-      transform: rotate(18deg) translateX(-8vw);
-      animation: heroBeamSweep 38s ease-in-out infinite alternate;
-    }
-    .hero-beam:nth-child(2) {
-      left: auto;
-      right: 2vw;
-      width: 30vw;
-      opacity: 0.76;
-      transform: rotate(-16deg) translateX(5vw);
-      animation-duration: 44s;
-      animation-delay: -12s;
-    }
-    @keyframes heroLightDrift {
-      0% { transform: translate3d(-2%, -1%, 0) scale(1); opacity: 0.7; }
-      100% { transform: translate3d(3%, 2%, 0) scale(1.08); opacity: 1; }
-    }
-    @keyframes heroGridShimmer {
-      0% { opacity: 0.28; }
-      45% { opacity: 0.48; }
-      100% { opacity: 0.32; }
-    }
-    @keyframes heroParticleDrift {
-      from { background-position: 0 0, 0 0, 18px 24px; }
-      to { background-position: 96px 48px, -48px 96px, 148px -106px; }
-    }
-    @keyframes heroBeamSweep {
-      from { transform: rotate(18deg) translateX(-12vw); opacity: 0.42; }
-      to { transform: rotate(18deg) translateX(18vw); opacity: 0.78; }
     }
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle at center, rgba(0,0,0,0.02), rgba(0,0,0,0.24) 74%),
-        var(--overlay-dark);
+      background: transparent;
       z-index: 1;
+      pointer-events: none;
     }
     .hero-content {
       position: relative;
@@ -802,15 +725,10 @@
 
     @media (max-width: 978px) { .two-col-grid, .faq-grid { grid-template-columns: 1fr !important; } .footer-top { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } #sires-track { grid-template-columns: repeat(4, minmax(300px, 42vw)); } }
     @media (max-width: 766px) { .hero-logo-wrap { margin-top: 0.75rem; margin-bottom: 0.75rem; } .hero-content { max-width: 820px; } .hero-headline { font-size: 6em; min-height: 300px; height: 300px; } .section-headline { font-size: 2.2rem; } .carousel-section, .two-col-section, .cta-band, .hero { min-height: auto; padding-top: 100px; padding-bottom: 80px; } .footer-top { grid-template-columns: 1fr; } #sires-track { grid-template-rows: 1fr; grid-template-columns: repeat(6, minmax(280px, 82vw)); } }
-    @media (max-width: 600px) { .nav { padding-right: 0.75rem; } .nav-brand { padding-inline: 1rem; font-size: 0.9rem; } .nav-cta { display: none; } .hero-logo-static { width: min(44vw, 175px); } }
+    @media (max-width: 600px) { .nav { padding-right: 0.75rem; } .nav-brand { padding-inline: 1rem; font-size: 0.9rem; } .nav-cta { display: none; } .hero-logo-static { width: min(44vw, 175px); } .hero-ctas { gap: 0.55rem; } .hero-ctas .btn { min-width: 126px; padding: 0.85rem 0.8rem; font-size: 0.78rem; } }
     @media (max-width: 480px) { .hero-headline { font-size: 4.5rem; min-height: 284px; height: 284px; } .hero-headline:not(.is-3d) { font-size: 3.55rem; } }
     @media (max-width: 700px) { #show-record [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; } }
     @media (prefers-reduced-motion: reduce) {
-      .hero-atmosphere::before,
-      .hero-atmosphere::after,
-      .hero-beam {
-        animation: none;
-      }
       .headline-3d-canvas {
         animation: none;
       }
@@ -898,10 +816,6 @@
       <video autoplay muted loop playsinline poster="hero.jpg">
         <source src="hero.mp4" type="video/mp4">
       </video>
-    </div>
-    <div class="hero-atmosphere" aria-hidden="true">
-      <span class="hero-beam"></span>
-      <span class="hero-beam"></span>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-logo-wrap">
