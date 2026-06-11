@@ -745,6 +745,71 @@
       border: 1px solid rgba(255,255,255,0.14);
       box-shadow: 0 24px 50px rgba(0,0,0,0.48);
     }
+    .family-photo-frame {
+      --photo-shift: 0px;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      opacity: 0;
+      clip-path: inset(12% 0 12% 0);
+      transform: translateY(48px);
+      transition:
+        opacity 1s cubic-bezier(.2,.75,.25,1),
+        clip-path 1.35s cubic-bezier(.16,1,.3,1),
+        transform 1.15s cubic-bezier(.16,1,.3,1);
+    }
+    .family-photo-frame.photo-visible {
+      opacity: 1;
+      clip-path: inset(0 0 0 0);
+      transform: translateY(0);
+    }
+    .family-photo-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background: linear-gradient(105deg, transparent 34%, rgba(255,255,255,0.16) 49%, transparent 64%);
+      transform: translateX(-130%);
+    }
+    .family-photo-frame.photo-visible::after {
+      animation: familyPhotoSheen 1.8s 0.45s cubic-bezier(.2,.7,.2,1) both;
+    }
+    .family-photo-frame img {
+      transform: translate3d(0, var(--photo-shift), 0) scale(1.085);
+      transition: transform 1.4s cubic-bezier(.16,1,.3,1), filter 0.8s ease;
+      will-change: transform;
+    }
+    .family-photo-frame.photo-visible img {
+      transform: translate3d(0, var(--photo-shift), 0) scale(1.035);
+    }
+    .family-photo-frame:hover img {
+      transform: translate3d(0, var(--photo-shift), 0) scale(1.055);
+      filter: saturate(1.07) contrast(1.03);
+    }
+    .family-photo-frame--portrait {
+      border-radius: 8px;
+      box-shadow: 0 24px 50px rgba(0,0,0,0.42);
+    }
+    .family-photo-frame--portrait img {
+      width: 100%;
+      min-height: 100%;
+      border-radius: 0 !important;
+    }
+    @keyframes familyPhotoSheen {
+      from { transform: translateX(-130%); }
+      to { transform: translateX(130%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .family-photo-frame,
+      .family-photo-frame img {
+        opacity: 1;
+        clip-path: none;
+        transform: none !important;
+        transition: none;
+      }
+      .family-photo-frame::after { display: none; }
+    }
 
     @media (max-width: 978px) { .two-col-grid, .faq-grid { grid-template-columns: 1fr !important; } .footer-top { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } #sires-track { grid-template-columns: repeat(4, minmax(300px, 42vw)); } }
     @media (min-width: 979px) {
@@ -909,7 +974,7 @@
         We work alongside elite programs like Circle S Farms, sourcing AI sires and embryo genetics that give our calves every advantage in the ring. Our first 5707 × Primo 5153 embryo calves are due in early 2027.
       </p>
     </div>
-    <figure class="program-photo">
+    <figure class="program-photo family-photo-frame" data-photo-depth="12">
       <img src="vance-awards-2024.jpg" alt="Vance Aaron with championship banners, awards, and livestock show honors">
     </figure>
     <a href="#about" class="btn btn-primary" style="position:relative; z-index:1;">Learn More About Us</a>
@@ -1036,7 +1101,7 @@
 
   <section id="about" style="padding: var(--section-y-lg) var(--col-pad-x); background: #0d0d0d;">
     <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-      <div style="position:relative;">
+      <div class="family-photo-frame family-photo-frame--portrait" data-photo-depth="8">
         <img src="about-family.jpg" alt="The Aaron Family — Gladewater, TX"
              style="width:100%; border-radius: 8px; display:block; object-fit:cover;">
       </div>
@@ -1466,10 +1531,44 @@
         revealObserver.observe(el);
       });
       // About section content
-      document.querySelectorAll('#about img, #about h2, #about p').forEach((el, i) => {
+      document.querySelectorAll('#about h2, #about p').forEach((el, i) => {
         el.classList.add('reveal', `reveal-delay-${Math.min(i + 1, 4)}`);
         revealObserver.observe(el);
       });
+      const familyPhotos = [...document.querySelectorAll('.family-photo-frame')];
+      const familyPhotoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('photo-visible');
+            familyPhotoObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      familyPhotos.forEach(photo => familyPhotoObserver.observe(photo));
+
+      if (allowMotion && familyPhotos.length) {
+        let photoFramePending = false;
+        const updateFamilyPhotoDepth = () => {
+          familyPhotos.forEach(photo => {
+            const rect = photo.getBoundingClientRect();
+            const viewportCenter = window.innerHeight / 2;
+            const photoCenter = rect.top + rect.height / 2;
+            const progress = Math.max(-1, Math.min(1, (photoCenter - viewportCenter) / window.innerHeight));
+            const depth = Number(photo.dataset.photoDepth || 8);
+            photo.style.setProperty('--photo-shift', `${(-progress * depth).toFixed(2)}px`);
+          });
+          photoFramePending = false;
+        };
+        const requestFamilyPhotoDepth = () => {
+          if (!photoFramePending) {
+            photoFramePending = true;
+            requestAnimationFrame(updateFamilyPhotoDepth);
+          }
+        };
+        updateFamilyPhotoDepth();
+        window.addEventListener('scroll', requestFamilyPhotoDepth, { passive: true });
+        window.addEventListener('resize', requestFamilyPhotoDepth);
+      }
       // Quicknav cards
       document.querySelectorAll('.quicknav-card').forEach(el => revealObserver.observe(el));
       // Catch-all: observe any remaining .reveal elements not yet observed
