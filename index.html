@@ -723,6 +723,28 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+    .program-copy {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .program-photo {
+      width: min(100%, 1240px);
+      margin: clamp(2rem, 4vw, 3.5rem) auto 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    .program-photo img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 5528 / 2060;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 24px 50px rgba(0,0,0,0.48);
+    }
 
     @media (max-width: 978px) { .two-col-grid, .faq-grid { grid-template-columns: 1fr !important; } .footer-top { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } #sires-track { grid-template-columns: repeat(4, minmax(300px, 42vw)); } }
     @media (min-width: 979px) {
@@ -877,17 +899,20 @@
   <section id="program" data-section="program" style="background:#0d0d0d; padding: var(--section-y-lg) var(--col-pad-x); text-align:center; position:relative; overflow:hidden;">
     <!-- AF background mark -->
     <img src="af-brand.png" alt="" aria-hidden="true" class="intro-af-mark">
-    <div style="max-width:760px; margin:0 auto; position:relative; z-index:1;">
+    <div class="program-copy">
       <div class="eyebrow reveal" style="font-size:1.6rem; margin-bottom:0.5rem;">Gladewater, Texas · EST. 2005</div>
       <h2 class="section-headline reveal reveal-delay-1" style="font-size:clamp(2rem,5vw,3.5rem); margin-bottom:1.5rem;">Aaron Family Livestock</h2>
       <p style="color:var(--white-muted);line-height:1.8;margin-bottom:1rem;max-width:60ch;margin-left:auto;margin-right:auto;">
         Aaron Family Livestock is a registered Angus operation rooted in East Texas. EST. 2005 — the year Vance was born and the Aaron family became complete. Every animal we produce carries the same purpose: breed the kind of genetics that show families trust and champions are made from.
       </p>
-      <p style="color:var(--white-muted);line-height:1.8;margin-bottom:2rem;max-width:60ch;margin-left:auto;margin-right:auto;">
-        We work alongside elite programs like Circle S Farms, sourcing AI sires and embryo genetics that give our calves every advantage in the ring. Our first 5707 × Primo 5153 embryo calves are due in 2026.
+      <p style="color:var(--white-muted);line-height:1.8;margin-bottom:0;max-width:60ch;margin-left:auto;margin-right:auto;">
+        We work alongside elite programs like Circle S Farms, sourcing AI sires and embryo genetics that give our calves every advantage in the ring. Our first 5707 × Primo 5153 embryo calves are due in early 2027.
       </p>
-      <a href="#about" class="btn btn-primary">Learn More About Us</a>
     </div>
+    <figure class="program-photo">
+      <img src="vance-awards-2024.jpg" alt="Vance Aaron with championship banners, awards, and livestock show honors">
+    </figure>
+    <a href="#about" class="btn btn-primary" style="position:relative; z-index:1;">Learn More About Us</a>
   </section>
 
   <section class="carousel-section" id="sires" style="padding: var(--section-y-lg) 0;">
@@ -1022,7 +1047,7 @@
           Aaron Family Livestock is a registered Angus operation rooted in East Texas. EST. 2005 — the year Vance was born and the Aaron family became complete. Every animal we produce carries the same purpose: breed the kind of genetics that show families trust and champions are made from.
         </p>
         <p style="color:var(--white-muted);line-height:1.8;margin-bottom:1rem;">
-          We've been blessed to work alongside elite programs like Circle S Farms, sourcing AI sires and embryo genetics that give our calves every advantage in the ring. Our first 5707 × Primo 5153 embryo calves are due in 2026 — and we believe they'll be something special.
+          We've been blessed to work alongside elite programs like Circle S Farms, sourcing AI sires and embryo genetics that give our calves every advantage in the ring. Our first 5707 × Primo 5153 embryo calves are due in early 2027 — and we believe they'll be something special.
         </p>
         <p style="color:var(--white-muted);line-height:1.8;margin-bottom:2rem;">
           This is a family program. Every animal gets our full attention. That's the Aaron way.
