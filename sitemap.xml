@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://aaronfamilylivestock.com/</loc>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://aaronfamilylivestock.com/hero-desktop.jpg</image:loc>
+      <image:title>Registered Angus show cattle at Aaron Family Livestock</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://aaronfamilylivestock.com/vance-awards-2024.jpg</image:loc>
+      <image:title>Vance Aaron livestock show awards and championship banners</image:title>
+    </image:image>
   </url>
 </urlset>
