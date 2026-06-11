@@ -107,7 +107,12 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: var(--size-base); scroll-behavior: smooth; }
+    html {
+      font-size: var(--size-base);
+      scroll-behavior: smooth;
+      overflow-y: auto;
+      touch-action: pan-y;
+    }
     body {
       background: var(--canvas-bg);
       color: var(--white);
@@ -116,6 +121,8 @@
       line-height: var(--lh-body);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      overflow-y: visible;
+      touch-action: pan-y;
     }
     a { color: inherit; text-decoration: none; }
     img, video { display: block; max-width: 100%; }
@@ -277,6 +284,7 @@
       inset: 0;
       z-index: 0;
       background: url('hero.jpg') center center / cover no-repeat;
+      pointer-events: none;
     }
     .hero-video-wrapper video {
       position: absolute;
@@ -285,6 +293,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center center;
+      pointer-events: none;
     }
     .hero-overlay {
       position: absolute;
