@@ -787,14 +787,23 @@
       position: absolute;
       width: clamp(420px, 62vw, 820px);
       height: auto;
-      opacity: 0.17;
+      opacity: 0.25;
       pointer-events: none;
       user-select: none;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      filter: saturate(1.25) drop-shadow(0 0 55px rgba(110,0,0,0.28));
+      filter:
+        brightness(1.18)
+        saturate(1.35)
+        drop-shadow(0 0 34px rgba(145, 8, 8, 0.34));
       z-index: 0;
+    }
+    @media (max-width: 600px) {
+      .cta-af-mark {
+        width: min(112vw, 560px);
+        opacity: 0.21;
+      }
     }
 
     /* Intro section AF mark */
