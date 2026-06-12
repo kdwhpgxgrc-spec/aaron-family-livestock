@@ -1,19 +1,25 @@
 # Aaron Family Livestock
 
-> Aaron Family Livestock LLC is a registered Angus show cattle and genetics program in Gladewater, Texas, focused on AI sires, embryo calves, foundation females, and family-raised cattle bred for the show ring.
+> Aaron Family Livestock LLC is a family registered Angus operation in Gladewater, Texas, focused on AI sires, embryo calves, foundation females and cattle for competitive show families.
 
-## Core Documentation
-- [Home](https://aaronfamilylivestock.com/): Overview of Aaron Family Livestock, registered Angus genetics, show record, and contact information.
-- [Sires and Genetics](https://aaronfamilylivestock.com/#sires): Featured AI sires, embryo genetics, donor females, and foundation cow families.
-- [About](https://aaronfamilylivestock.com/#about): Family background, Gladewater location, and program philosophy.
+## Primary Pages
+- [Home](https://aaronfamilylivestock.com/): Business overview, current genetics and contact information.
+- [Angus Genetics](https://aaronfamilylivestock.com/angus-genetics/): How AFL selects AI sires, embryo matings and foundation females.
+- [Sires and Cow Families](https://aaronfamilylivestock.com/sires/): Current sires, donor female and cow-family influences.
+- [2027 Embryo Calves](https://aaronfamilylivestock.com/embryo-calves/): Circle S 5707 by Colburn Primo 5153 calves expected in early 2027.
+- [Show Cattle](https://aaronfamilylivestock.com/show-cattle/): How AFL evaluates cattle for structure, balance and family fit.
+- [Show Record](https://aaronfamilylivestock.com/show-record/): Selected results for Vance Aaron.
+- [About](https://aaronfamilylivestock.com/about/): Family history and the Gladewater, Texas program.
+- [Contact](https://aaronfamilylivestock.com/contact/): Contact Bryan Aaron or Vance Aaron.
 
-## Products & Services
-- [AI and Embryo Genetics](https://aaronfamilylivestock.com/#sires): Circle S Moxy 406, Colburn Primo 5153, El Jefe, Silveiras Style 9303, Circle S 5707, and Phat Amy daughter genetics.
-- [Show Cattle Program](https://aaronfamilylivestock.com/#show-record): Show record highlights and cattle raised with a family-first approach.
-
-## About & Authority
-- [Show Record](https://aaronfamilylivestock.com/#show-record): Competitive cattle achievements including San Angelo, Cowgirls in Cowtown, and JBBA National highlights.
-- [Contact](https://aaronfamilylivestock.com/#contact): Contact Bryan Aaron or Vance Aaron for questions about the program.
+## Verified Program Facts
+- Business: Aaron Family Livestock LLC
+- Location: Gladewater, Texas, United States
+- Established: 2005
+- Focus: Registered Angus genetics and show cattle
+- Upcoming calf crop: Circle S 5707 x Colburn Primo 5153 embryo calves due in early 2027
 
 ## Contact
-- [Contact](https://aaronfamilylivestock.com/#contact): Reach Aaron Family Livestock in Gladewater, Texas.
+- Bryan Aaron: +1-832-330-6542
+- Vance Aaron: +1-903-720-3184
+- Email: aaronfamilylivestock@gmail.com

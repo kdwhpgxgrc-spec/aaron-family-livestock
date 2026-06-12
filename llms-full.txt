@@ -1,47 +1,52 @@
-# Aaron Family Livestock — Full Content Index
+# Aaron Family Livestock - Full Content Index
 
-> Aaron Family Livestock LLC is a registered Angus show cattle and genetics program in Gladewater, Texas, focused on AI sires, embryo calves, foundation females, and family-raised cattle bred for the show ring.
+> Aaron Family Livestock LLC is a family registered Angus operation in Gladewater, Texas. The program uses AI sire genetics, embryo matings and foundation females to build cattle for competitive show families and a useful long-term cow herd.
 
-*Generated: 2026-06-01*
+*Updated: 2026-06-12*
 
----
+## Business Identity
 
-## Core Documentation
+- Official name: Aaron Family Livestock LLC
+- Location: Gladewater, Texas, United States
+- Established: 2005
+- Slogan: Bred to Win. Raised with Pride.
+- Primary focus: Registered Angus genetics and show cattle
+- Owners listed on the site: Bryan Aaron and Vance Aaron
+
+## Site Pages
 
 ### [Home](https://aaronfamilylivestock.com/)
-*Overview of Aaron Family Livestock, registered Angus genetics, show record, and contact information.*
+Overview of the family, genetics, selected show record and contact details.
 
-Aaron Family Livestock is a registered Angus operation rooted in East Texas. Established in 2005, the program focuses on cattle with the structure, look, and genetic foundation expected by competitive show families.
+### [Angus Genetics](https://aaronfamilylivestock.com/angus-genetics/)
+Explains how AFL combines registered Angus females with proven AI sires and embryo matings. The program considers pedigree, maternal value, structure, balance and show-ring presence.
 
-### [Sires and Genetics](https://aaronfamilylivestock.com/#sires)
-*Featured AI sires, embryo genetics, donor females, and foundation cow families.*
+### [Sires and Cow Families](https://aaronfamilylivestock.com/sires/)
+Documents Circle S Moxy 406, Colburn Primo 5153, Silveiras Style 9303 and El Jefe influence, plus Circle S 5707 and AFL's Phat Amy daughter.
 
-The program highlights Circle S Moxy 406, El Jefe, Colburn Primo 5153, Silveiras Style 9303, Circle S 5707, and Phat Amy daughter foundation genetics. Aaron Family Livestock works with elite programs such as Circle S Farms to source AI sires and embryo genetics.
+### [2027 Embryo Calves](https://aaronfamilylivestock.com/embryo-calves/)
+The first AFL embryo calves are expected in early 2027 from Circle S 5707 by Colburn Primo 5153. The embryos were purchased through Circle S Farms. Availability depends on the resulting calf crop and individual development.
 
-### [About](https://aaronfamilylivestock.com/#about)
-*Family background, Gladewater location, and program philosophy.*
+### [Show Cattle](https://aaronfamilylivestock.com/show-cattle/)
+Explains that show-calf selection should consider structure, balance, disposition, exhibitor fit, timeline and the family's goals.
 
-Aaron Family Livestock is a family program in Gladewater, Texas. Every animal receives hands-on attention with the goal of producing cattle that show families trust.
+### [Show Record](https://aaronfamilylivestock.com/show-record/)
+Selected results include Reserve Grand Champion Beefmaster at San Angelo, Reserve Division Champion Beefmaster at Cowgirls in Cowtown and National Calf Champion and Division Champion Bull at the 2022 JBBA National.
 
----
+### [About](https://aaronfamilylivestock.com/about/)
+Aaron Family Livestock identifies 2005 as the year Vance was born and the Aaron family became complete. The current operation is based in Gladewater, Texas.
 
-## Products & Services
+### [Contact](https://aaronfamilylivestock.com/contact/)
+Bryan Aaron can be reached at +1-832-330-6542. Vance Aaron can be reached at +1-903-720-3184. General email is aaronfamilylivestock@gmail.com.
 
-### [AI and Embryo Genetics](https://aaronfamilylivestock.com/#sires)
-*Registered Angus AI sire and embryo genetics.*
+## Important Timing
 
-The program includes embryo calves due in 2026 from 5707 x Colburn Primo 5153 and AI genetics tied to proven Angus show cattle lines.
+- Circle S 5707 x Colburn Primo 5153 embryo calves are due in early 2027.
+- The site does not promise availability before calves are born and evaluated.
 
-### [Show Cattle Program](https://aaronfamilylivestock.com/#show-record)
-*Show record highlights and cattle raised with a family-first approach.*
+## External Sources Linked From the Site
 
-Show record highlights include San Angelo Stock Show and Rodeo, Cowgirls in Cowtown, and JBBA National achievements.
-
----
-
-## About & Authority
-
-### [Contact](https://aaronfamilylivestock.com/#contact)
-*Contact Bryan Aaron or Vance Aaron for questions about the program.*
-
-Aaron Family Livestock can be reached by phone, email, Facebook, or through the contact section of the website.
+- GeneSource page for Circle S Moxy 406
+- Cattle Visions page for Colburn Primo 5153
+- Aaron Family Livestock Facebook page
+- Bryan Aaron LinkedIn profile

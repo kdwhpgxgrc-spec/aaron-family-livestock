@@ -3,16 +3,58 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://aaronfamilylivestock.com/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://aaronfamilylivestock.com/hero-desktop.jpg</image:loc>
       <image:title>Registered Angus show cattle at Aaron Family Livestock</image:title>
     </image:image>
-    <image:image>
-      <image:loc>https://aaronfamilylivestock.com/vance-awards-2024.jpg</image:loc>
-      <image:title>Vance Aaron livestock show awards and championship banners</image:title>
-    </image:image>
+  </url>
+  <url>
+    <loc>https://aaronfamilylivestock.com/angus-genetics/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image><image:loc>https://aaronfamilylivestock.com/sires/moxy-406.jpg</image:loc><image:title>Circle S Moxy 406 Angus AI sire</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://aaronfamilylivestock.com/sires/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image><image:loc>https://aaronfamilylivestock.com/sires/primo-5153.jpg</image:loc><image:title>Colburn Primo 5153 Angus embryo sire</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://aaronfamilylivestock.com/embryo-calves/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image><image:loc>https://aaronfamilylivestock.com/cows/circle-s-5707.jpg</image:loc><image:title>Circle S 5707 Angus embryo donor</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://aaronfamilylivestock.com/show-cattle/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aaronfamilylivestock.com/show-record/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <image:image><image:loc>https://aaronfamilylivestock.com/vance-awards-2024.jpg</image:loc><image:title>Vance Aaron livestock show awards</image:title></image:image>
+  </url>
+  <url>
+    <loc>https://aaronfamilylivestock.com/about/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aaronfamilylivestock.com/contact/</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
