@@ -171,6 +171,71 @@ h3 {
   color: var(--muted);
   font-size: 0.75rem;
 }
+.program-overview {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(107, 0, 0, 0.36), rgba(17, 17, 17, 0.92) 44%),
+    var(--panel);
+  box-shadow: 16px 16px 0 var(--maroon);
+  overflow: hidden;
+}
+.program-overview-header {
+  padding: clamp(1.4rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--line);
+}
+.program-overview-header h2 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+.program-overview-header p {
+  max-width: 32rem;
+  margin: 0;
+  color: var(--muted);
+}
+.program-metrics {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.program-metrics div {
+  display: grid;
+  grid-template-columns: minmax(7rem, 0.36fr) 1fr;
+  gap: 1rem;
+  padding: 1rem clamp(1.4rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--line);
+}
+.program-metrics dt {
+  color: #e3a6a6;
+  font: 700 0.78rem/1.2 var(--font-heading);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.program-metrics dd {
+  margin: 0;
+  color: var(--white);
+  font-weight: 700;
+}
+.program-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.program-links a {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: var(--white);
+  font: 700 0.84rem/1.2 var(--font-heading);
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.program-links a + a { border-left: 1px solid var(--line); }
+.program-links a:hover,
+.program-links a:focus-visible { background: rgba(255, 255, 255, 0.08); }
 .answer-band {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -294,6 +359,7 @@ h3 {
   .detail-grid { grid-template-columns: 1fr; }
   .page-hero { padding-top: 3.5rem; }
   .hero-media { box-shadow: 9px 9px 0 var(--maroon); }
+  .program-overview { box-shadow: 9px 9px 0 var(--maroon); }
   .content-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 620px) {
@@ -301,6 +367,12 @@ h3 {
   .brand span { max-width: 150px; }
   .nav-cta { min-height: 38px; padding: 0.6rem 0.75rem; }
   .photo-strip { grid-template-columns: 1fr; }
+  .program-metrics div { grid-template-columns: 1fr; gap: 0.3rem; }
+  .program-links { grid-template-columns: 1fr; }
+  .program-links a + a {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
   .site-footer { flex-direction: column; }
 }
 @media (prefers-reduced-motion: reduce) {
